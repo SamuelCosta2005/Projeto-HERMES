@@ -1,0 +1,5 @@
+# Ignorar arquivos sensíveis do Firebase e segredos
+hermes_app/.firebase/
+hermes_app/lib/firebase_options.dart
+hermes_app/android/app/google-services.json
+*.env

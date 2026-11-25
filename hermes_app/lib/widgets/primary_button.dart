@@ -9,7 +9,7 @@ class PrimaryButton extends StatelessWidget {
   final IconData icon;
   final VoidCallback? onPressed;
   final bool isLoading;
-  final Color color;
+  final Color? color;
   final bool iconOnRight;
 
   const PrimaryButton({
@@ -18,13 +18,16 @@ class PrimaryButton extends StatelessWidget {
     required this.icon,
     required this.onPressed,
     this.isLoading = false,
-    this.color = AppColors.accent,
+    this.color,
     this.iconOnRight = false,
   });
 
   @override
   Widget build(BuildContext context) {
     final bool enabled = onPressed != null && !isLoading;
+    // Cor padrão é o destaque do tema atual (ciano no escuro, laranja no
+    // claro); não pode ser valor default do construtor pois agora é dinâmica.
+    final Color effectiveColor = color ?? AppColors.accent;
 
     final child = isLoading
         ? SizedBox(
@@ -57,8 +60,8 @@ class PrimaryButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: enabled ? onPressed : null,
         style: ElevatedButton.styleFrom(
-          backgroundColor: color,
-          disabledBackgroundColor: color.withOpacity(0.35),
+          backgroundColor: effectiveColor,
+          disabledBackgroundColor: effectiveColor.withOpacity(0.35),
           elevation: 0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(14),

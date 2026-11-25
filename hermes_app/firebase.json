@@ -1,0 +1,37 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "hermes-app-7206a",
+          "appId": "1:821007801049:android:2bb06ffd23c1c87e99fcc8",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "hermes-app-7206a",
+          "configurations": {
+            "android": "1:821007801049:android:2bb06ffd23c1c87e99fcc8",
+            "web": "1:821007801049:web:e83eb54b85b1091f99fcc8",
+            "windows": "1:821007801049:web:82d5206b6aa0df9699fcc8"
+          }
+        }
+      }
+    }
+  },
+  "hosting": {
+    "public": "build/web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
